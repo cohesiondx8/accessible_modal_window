@@ -48,7 +48,6 @@
                     self.removeAttribute('disabled')
                 }
                 self.removeAttribute('hidden');
-                self.id = getOpenTarget + '__trigger-' + self.nodeName;
                 self.addEventListener('click', ARIAmodal.openModal);
                 self.addEventListener('keydown', ARIAmodal.keyEvents, false)
             } else {
