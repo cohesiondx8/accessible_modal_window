@@ -192,8 +192,7 @@
         requestAnimationFrame(function () {
             focusTarget.focus()
         });
-        doc.addEventListener('click', ARIAmodal.outsideClose, false);
-        doc.addEventListener('touchend', ARIAmodal.outsideClose, false);
+
         return [initialTrigger, activeModal, returnToBody]
     };
     ARIAmodal.closeModal = function (e) {
@@ -275,14 +274,7 @@
             }
         }
     };
-    ARIAmodal.outsideClose = function (e) {
-        if (body.classList.contains(activeClass) && !e.target.hasAttribute('data-modal-open')) {
-            var isClickInside = activeModal.contains(e.target);
-            if (!isClickInside && activeModal.getAttribute('role') !== 'alertdialog') {
-                ARIAmodal.closeModal()
-            }
-        }
-    };
+
     ARIAmodal.autoLoad = function () {
         var getAuto = doc.querySelectorAll('[data-modal-auto]');
         var hashValue = w.location.hash || null;
