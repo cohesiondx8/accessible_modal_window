@@ -154,7 +154,7 @@
         activeModal = doc.getElementById(getTargetModal);
         var focusTarget = activeModal;
         var getAutofocus = activeModal.querySelector('[autofocus]') || activeModal.querySelector('[data-autofocus]');
-        var setInert = activeModal.getAttribute('data-coh-modal-overlay');
+        var setInert = activeModal.hasAttribute('data-coh-modal-overlay');
         useAriaModal = activeModal.hasAttribute('aria-modal');
         if (autoOpen) {
             returnToBody = true
@@ -170,6 +170,7 @@
         }
         if (!body.classList.contains(activeClass)) {
             body.classList.add(activeClass);
+
             if(setInert) {
                 for (i = 0; i < children.length; i += 1) {
                     if (!useAriaModal) {
